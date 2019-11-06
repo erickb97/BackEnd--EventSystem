@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_desarrollofinalModelStoreContainer" CdmEntityContainer="db_desarrollofinalEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="db_desarrollofinalModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Artistas">
+      <EntityTypeMapping TypeName="db_desarrollofinalModel.Tb_Artistas">
+        <MappingFragment StoreEntitySet="Tb_Artistas">
+          <ScalarProperty Name="Artista_id" ColumnName="Artista_id" />
+          <ScalarProperty Name="Artista_nombre" ColumnName="Artista_nombre" />
+          <ScalarProperty Name="Artista_apellido" ColumnName="Artista_apellido" />
+          <ScalarProperty Name="CompTelefono_id_FK" ColumnName="CompTelefono_id_FK" />
+          <ScalarProperty Name="Artista_Telefono" ColumnName="Artista_Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_CompTelefono">
+      <EntityTypeMapping TypeName="db_desarrollofinalModel.Tb_CompTelefono">
+        <MappingFragment StoreEntitySet="Tb_CompTelefono">
+          <ScalarProperty Name="CompTelefono_id" ColumnName="CompTelefono_id" />
+          <ScalarProperty Name="CompTelefono_nombre" ColumnName="CompTelefono_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_EmpTarjeta">
+      <EntityTypeMapping TypeName="db_desarrollofinalModel.Tb_EmpTarjeta">
+        <MappingFragment StoreEntitySet="Tb_EmpTarjeta">
+          <ScalarProperty Name="Tarjeta_id" ColumnName="Tarjeta_id" />
+          <ScalarProperty Name="EmpTarjeta_nombre" ColumnName="EmpTarjeta_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Eventos">
+      <EntityTypeMapping TypeName="db_desarrollofinalModel.Tb_Eventos">
+        <MappingFragment StoreEntitySet="Tb_Eventos">
+          <ScalarProperty Name="Eventos_id" ColumnName="Eventos_id" />
+          <ScalarProperty Name="Evento_nombre" ColumnName="Evento_nombre" />
+          <ScalarProperty Name="Evento_costo" ColumnName="Evento_costo" />
+          <ScalarProperty Name="Evento_descripcion" ColumnName="Evento_descripcion" />
+          <ScalarProperty Name="TipoEvento_id" ColumnName="TipoEvento_id" />
+          <ScalarProperty Name="Artista_id" ColumnName="Artista_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Persona">
+      <EntityTypeMapping TypeName="db_desarrollofinalModel.Tb_Persona">
+        <MappingFragment StoreEntitySet="Tb_Persona">
+          <ScalarProperty Name="Persona_id" ColumnName="Persona_id" />
+          <ScalarProperty Name="Persona_nombre1" ColumnName="Persona_nombre1" />
+          <ScalarProperty Name="Persona_nombre2" ColumnName="Persona_nombre2" />
+          <ScalarProperty Name="Persona_apellido1" ColumnName="Persona_apellido1" />
+          <ScalarProperty Name="Persona_apellido2" ColumnName="Persona_apellido2" />
+          <ScalarProperty Name="Persona_dpi" ColumnName="Persona_dpi" />
+          <ScalarProperty Name="Persona_correo" ColumnName="Persona_correo" />
+          <ScalarProperty Name="Persona_contrasenia" ColumnName="Persona_contrasenia" />
+          <ScalarProperty Name="RolUsuario_id" ColumnName="RolUsuario_id" />
+          <ScalarProperty Name="Persona_Tarjeta" ColumnName="Persona_Tarjeta" />
+          <ScalarProperty Name="Tarjeta_id_fk" ColumnName="Tarjeta_id_fk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Publicacion">
+      <EntityTypeMapping TypeName="db_desarrollofinalModel.Tb_Publicacion">
+        <MappingFragment StoreEntitySet="Tb_Publicacion">
+          <ScalarProperty Name="Publicacion_id" ColumnName="Publicacion_id" />
+          <ScalarProperty Name="Publicacion_dia" ColumnName="Publicacion_dia" />
+          <ScalarProperty Name="Publicacion_hora" ColumnName="Publicacion_hora" />
+          <ScalarProperty Name="Publicacion_precio" ColumnName="Publicacion_precio" />
+          <ScalarProperty Name="Evento_id" ColumnName="Evento_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_RolUsuario">
+      <EntityTypeMapping TypeName="db_desarrollofinalModel.Tb_RolUsuario">
+        <MappingFragment StoreEntitySet="Tb_RolUsuario">
+          <ScalarProperty Name="RolUsuario_id" ColumnName="RolUsuario_id" />
+          <ScalarProperty Name="RolUsuario_rol" ColumnName="RolUsuario_rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Ticket">
+      <EntityTypeMapping TypeName="db_desarrollofinalModel.Tb_Ticket">
+        <MappingFragment StoreEntitySet="Tb_Ticket">
+          <ScalarProperty Name="Ticket_id" ColumnName="Ticket_id" />
+          <ScalarProperty Name="Persona_id" ColumnName="Persona_id" />
+          <ScalarProperty Name="ticket_fila" ColumnName="ticket_fila" />
+          <ScalarProperty Name="ticket_columna" ColumnName="ticket_columna" />
+          <ScalarProperty Name="Publicacion_id_fk" ColumnName="Publicacion_id_fk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_TipoEvento">
+      <EntityTypeMapping TypeName="db_desarrollofinalModel.Tb_TipoEvento">
+        <MappingFragment StoreEntitySet="Tb_TipoEvento">
+          <ScalarProperty Name="Tipoevento_id" ColumnName="Tipoevento_id" />
+          <ScalarProperty Name="TipoEvento_nombre" ColumnName="TipoEvento_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
