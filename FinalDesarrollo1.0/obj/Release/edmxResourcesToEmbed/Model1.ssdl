@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_desarrollofinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tb_Artistas">
+    <Key>
+      <PropertyRef Name="Artista_id" />
+    </Key>
+    <Property Name="Artista_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Artista_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Artista_apellido" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CompTelefono_id_FK" Type="int" />
+    <Property Name="Artista_Telefono" Type="nvarchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="Tb_CompTelefono">
+    <Key>
+      <PropertyRef Name="CompTelefono_id" />
+    </Key>
+    <Property Name="CompTelefono_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompTelefono_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tb_EmpTarjeta">
+    <Key>
+      <PropertyRef Name="Tarjeta_id" />
+    </Key>
+    <Property Name="Tarjeta_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpTarjeta_nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tb_Eventos">
+    <Key>
+      <PropertyRef Name="Eventos_id" />
+    </Key>
+    <Property Name="Eventos_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Evento_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Evento_costo" Type="money" Nullable="false" />
+    <Property Name="Evento_descripcion" Type="nvarchar" MaxLength="100" />
+    <Property Name="TipoEvento_id" Type="int" Nullable="false" />
+    <Property Name="Artista_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tb_Persona">
+    <Key>
+      <PropertyRef Name="Persona_id" />
+    </Key>
+    <Property Name="Persona_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Persona_nombre1" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Persona_nombre2" Type="nvarchar" MaxLength="30" />
+    <Property Name="Persona_apellido1" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Persona_apellido2" Type="nvarchar" MaxLength="30" />
+    <Property Name="Persona_dpi" Type="nvarchar" MaxLength="13" Nullable="false" />
+    <Property Name="Persona_correo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Persona_contrasenia" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RolUsuario_id" Type="int" Nullable="false" />
+    <Property Name="Persona_Tarjeta" Type="nvarchar" MaxLength="20" />
+    <Property Name="Tarjeta_id_fk" Type="int" />
+  </EntityType>
+  <EntityType Name="Tb_Publicacion">
+    <Key>
+      <PropertyRef Name="Publicacion_id" />
+    </Key>
+    <Property Name="Publicacion_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Publicacion_dia" Type="date" Nullable="false" />
+    <Property Name="Publicacion_hora" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Publicacion_precio" Type="money" Nullable="false" />
+    <Property Name="Evento_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tb_RolUsuario">
+    <Key>
+      <PropertyRef Name="RolUsuario_id" />
+    </Key>
+    <Property Name="RolUsuario_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RolUsuario_rol" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tb_Ticket">
+    <Key>
+      <PropertyRef Name="Ticket_id" />
+    </Key>
+    <Property Name="Ticket_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Persona_id" Type="int" Nullable="false" />
+    <Property Name="ticket_fila" Type="nvarchar" MaxLength="5" />
+    <Property Name="ticket_columna" Type="int" />
+    <Property Name="Publicacion_id_fk" Type="int" />
+  </EntityType>
+  <EntityType Name="Tb_TipoEvento">
+    <Key>
+      <PropertyRef Name="Tipoevento_id" />
+    </Key>
+    <Property Name="Tipoevento_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoEvento_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="CompTelefono_id_FK">
+    <End Role="Tb_CompTelefono" Type="Self.Tb_CompTelefono" Multiplicity="0..1" />
+    <End Role="Tb_Artistas" Type="Self.Tb_Artistas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tb_CompTelefono">
+        <PropertyRef Name="CompTelefono_id" />
+      </Principal>
+      <Dependent Role="Tb_Artistas">
+        <PropertyRef Name="CompTelefono_id_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tb_Evento__Artis__70DDC3D8">
+    <End Role="Tb_Artistas" Type="Self.Tb_Artistas" Multiplicity="1" />
+    <End Role="Tb_Eventos" Type="Self.Tb_Eventos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tb_Artistas">
+        <PropertyRef Name="Artista_id" />
+      </Principal>
+      <Dependent Role="Tb_Eventos">
+        <PropertyRef Name="Artista_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Evento_TipoEvento">
+    <End Role="Tb_TipoEvento" Type="Self.Tb_TipoEvento" Multiplicity="1" />
+    <End Role="Tb_Eventos" Type="Self.Tb_Eventos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tb_TipoEvento">
+        <PropertyRef Name="Tipoevento_id" />
+      </Principal>
+      <Dependent Role="Tb_Eventos">
+        <PropertyRef Name="TipoEvento_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Persona_RolUsuarios">
+    <End Role="Tb_RolUsuario" Type="Self.Tb_RolUsuario" Multiplicity="1" />
+    <End Role="Tb_Persona" Type="Self.Tb_Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tb_RolUsuario">
+        <PropertyRef Name="RolUsuario_id" />
+      </Principal>
+      <Dependent Role="Tb_Persona">
+        <PropertyRef Name="RolUsuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Publicacion_Evento">
+    <End Role="Tb_Eventos" Type="Self.Tb_Eventos" Multiplicity="1" />
+    <End Role="Tb_Publicacion" Type="Self.Tb_Publicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tb_Eventos">
+        <PropertyRef Name="Eventos_id" />
+      </Principal>
+      <Dependent Role="Tb_Publicacion">
+        <PropertyRef Name="Evento_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Ticket_Persona">
+    <End Role="Tb_Persona" Type="Self.Tb_Persona" Multiplicity="1" />
+    <End Role="Tb_Ticket" Type="Self.Tb_Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tb_Persona">
+        <PropertyRef Name="Persona_id" />
+      </Principal>
+      <Dependent Role="Tb_Ticket">
+        <PropertyRef Name="Persona_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Publicacion_id_fk">
+    <End Role="Tb_Publicacion" Type="Self.Tb_Publicacion" Multiplicity="0..1" />
+    <End Role="Tb_Ticket" Type="Self.Tb_Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tb_Publicacion">
+        <PropertyRef Name="Publicacion_id" />
+      </Principal>
+      <Dependent Role="Tb_Ticket">
+        <PropertyRef Name="Publicacion_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Tarjeta_id_fk">
+    <End Role="Tb_EmpTarjeta" Type="Self.Tb_EmpTarjeta" Multiplicity="0..1" />
+    <End Role="Tb_Persona" Type="Self.Tb_Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tb_EmpTarjeta">
+        <PropertyRef Name="Tarjeta_id" />
+      </Principal>
+      <Dependent Role="Tb_Persona">
+        <PropertyRef Name="Tarjeta_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_desarrollofinalModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tb_Artistas" EntityType="Self.Tb_Artistas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tb_CompTelefono" EntityType="Self.Tb_CompTelefono" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tb_EmpTarjeta" EntityType="Self.Tb_EmpTarjeta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tb_Eventos" EntityType="Self.Tb_Eventos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tb_Persona" EntityType="Self.Tb_Persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tb_Publicacion" EntityType="Self.Tb_Publicacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tb_RolUsuario" EntityType="Self.Tb_RolUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tb_Ticket" EntityType="Self.Tb_Ticket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tb_TipoEvento" EntityType="Self.Tb_TipoEvento" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="CompTelefono_id_FK" Association="Self.CompTelefono_id_FK">
+      <End Role="Tb_CompTelefono" EntitySet="Tb_CompTelefono" />
+      <End Role="Tb_Artistas" EntitySet="Tb_Artistas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tb_Evento__Artis__70DDC3D8" Association="Self.FK__Tb_Evento__Artis__70DDC3D8">
+      <End Role="Tb_Artistas" EntitySet="Tb_Artistas" />
+      <End Role="Tb_Eventos" EntitySet="Tb_Eventos" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Evento_TipoEvento" Association="Self.Fk_Evento_TipoEvento">
+      <End Role="Tb_TipoEvento" EntitySet="Tb_TipoEvento" />
+      <End Role="Tb_Eventos" EntitySet="Tb_Eventos" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Persona_RolUsuarios" Association="Self.Fk_Persona_RolUsuarios">
+      <End Role="Tb_RolUsuario" EntitySet="Tb_RolUsuario" />
+      <End Role="Tb_Persona" EntitySet="Tb_Persona" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Publicacion_Evento" Association="Self.Fk_Publicacion_Evento">
+      <End Role="Tb_Eventos" EntitySet="Tb_Eventos" />
+      <End Role="Tb_Publicacion" EntitySet="Tb_Publicacion" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Ticket_Persona" Association="Self.Fk_Ticket_Persona">
+      <End Role="Tb_Persona" EntitySet="Tb_Persona" />
+      <End Role="Tb_Ticket" EntitySet="Tb_Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="Publicacion_id_fk" Association="Self.Publicacion_id_fk">
+      <End Role="Tb_Publicacion" EntitySet="Tb_Publicacion" />
+      <End Role="Tb_Ticket" EntitySet="Tb_Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="Tarjeta_id_fk" Association="Self.Tarjeta_id_fk">
+      <End Role="Tb_EmpTarjeta" EntitySet="Tb_EmpTarjeta" />
+      <End Role="Tb_Persona" EntitySet="Tb_Persona" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

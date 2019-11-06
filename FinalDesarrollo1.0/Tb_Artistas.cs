@@ -11,7 +11,8 @@ namespace FinalDesarrollo1._0
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tb_Artistas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +22,13 @@ namespace FinalDesarrollo1._0
         }
     
         public int Artista_id { get; set; }
+        [Required(ErrorMessage = "Es necesario que igrese un nombre")]
         public string Artista_nombre { get; set; }
+        [Required(ErrorMessage = "Es necesario que igrese un Apellido")]
         public string Artista_apellido { get; set; }
+        [Required(ErrorMessage = "indique la compania de telefono")]
         public Nullable<int> CompTelefono_id_FK { get; set; }
+        [StringLength(11)]
         public string Artista_Telefono { get; set; }
     
         public virtual Tb_CompTelefono Tb_CompTelefono { get; set; }

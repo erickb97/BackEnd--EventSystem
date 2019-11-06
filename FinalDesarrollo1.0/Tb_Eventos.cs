@@ -11,7 +11,8 @@ namespace FinalDesarrollo1._0
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tb_Eventos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,10 +22,14 @@ namespace FinalDesarrollo1._0
         }
     
         public int Eventos_id { get; set; }
+        [Required(ErrorMessage = "Es necesario que igrese un nombre")]
         public string Evento_nombre { get; set; }
+        [Required(ErrorMessage = "Ingrese el Costo total del evento")]
         public decimal Evento_costo { get; set; }
         public string Evento_descripcion { get; set; }
+        [Required(ErrorMessage = "Indique el tipo de evento")]
         public int TipoEvento_id { get; set; }
+        [Required(ErrorMessage = "Indique el artista")]
         public int Artista_id { get; set; }
     
         public virtual Tb_Artistas Tb_Artistas { get; set; }

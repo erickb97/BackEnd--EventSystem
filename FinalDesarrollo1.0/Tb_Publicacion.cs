@@ -11,7 +11,8 @@ namespace FinalDesarrollo1._0
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tb_Publicacion
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +22,11 @@ namespace FinalDesarrollo1._0
         }
     
         public int Publicacion_id { get; set; }
+        [Required(ErrorMessage = "Formato de fecha 09/11/2019")]
         public System.DateTime Publicacion_dia { get; set; }
+        [Required(ErrorMessage = "Formato de hora 13:35")]
         public System.TimeSpan Publicacion_hora { get; set; }
+        [Required(ErrorMessage = "Indique el precio al publico")]
         public decimal Publicacion_precio { get; set; }
         public int Evento_id { get; set; }
     

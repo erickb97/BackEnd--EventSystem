@@ -11,6 +11,7 @@ namespace FinalDesarrollo1._0
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Xml.Serialization;
 
     
@@ -24,12 +25,19 @@ namespace FinalDesarrollo1._0
         }
     
         public int Persona_id { get; set; }
+        [Required(ErrorMessage = "Es necesario que igrese un nombre")]
         public string Persona_nombre1 { get; set; }
         public string Persona_nombre2 { get; set; }
+        [Required(ErrorMessage = "Es necesario que igrese un apellido")]
         public string Persona_apellido1 { get; set; }
         public string Persona_apellido2 { get; set; }
+        [Required(ErrorMessage = "Ingrese el DPI de la persona")]
+        [MaxLength(13)]
         public string Persona_dpi { get; set; }
+        [Required(ErrorMessage = "Indique el correo electronico")]
+        [EmailAddress]
         public string Persona_correo { get; set; }
+        [Required(ErrorMessage = "Ingrese una contraseña")]
         public string Persona_contrasenia { get; set; }
         public int RolUsuario_id { get; set; }
         public string Persona_Tarjeta { get; set; }

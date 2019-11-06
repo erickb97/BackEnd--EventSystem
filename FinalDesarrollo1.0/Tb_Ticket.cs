@@ -11,13 +11,18 @@ namespace FinalDesarrollo1._0
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tb_Ticket
     {
         public int Ticket_id { get; set; }
+        [Required(ErrorMessage = "Indique la persona que compra")]
         public int Persona_id { get; set; }
+        [Required(ErrorMessage = "Es necesario que igrese una fila")]
         public string ticket_fila { get; set; }
+        [Required(ErrorMessage = "Es necesario que igrese una columna")]
         public Nullable<int> ticket_columna { get; set; }
+        [Required(ErrorMessage = "Indique el evento")]
         public Nullable<int> Publicacion_id_fk { get; set; }
     
         public virtual Tb_Persona Tb_Persona { get; set; }

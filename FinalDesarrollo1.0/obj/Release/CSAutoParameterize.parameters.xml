@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="db_desarrollofinalEntities-Web.config Connection String" description="db_desarrollofinalEntities Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=server1p.database.windows.net;initial catalog=db_desarrollofinal;user id=adTest;password=Test12345.;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Erick\\source\\repos\\FinalDesarrollo1\.0\\FinalDesarrollo1\.0\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='db_desarrollofinalEntities']/@connectionString" />
+  </parameter>
+</parameters>
